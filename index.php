@@ -9,6 +9,10 @@
 <body>
     <h1>Super CRUD PHP + SQLite</h1>
 
+    <div>
+        <a href="/add.php">Add</a>
+    </div>
+
     <?php
         // 15.30
 
