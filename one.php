@@ -1,3 +1,9 @@
+<?php 
+    echo $_GET['id'];
+?> 
+
+
+
 <?php
     // define PDO - tell about the database file
     $db = new PDO("sqlite:database.db");
@@ -36,3 +42,7 @@
 <h1><?php echo htmlspecialchars($r['id']); ?></h1>
 <p>Description: <?php echo htmlspecialchars($r['sname']); ?></p>
 <p>Score: <?php echo htmlspecialchars($r['score']); ?></p>
+
+<form action="<?php echo 'delete.php?id=' . htmlspecialchars($r['id']) ?>" method="POST">
+    <button type="submit" name="delete">Delete this record</button>
+</form>

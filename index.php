@@ -10,7 +10,7 @@
     <h1>Super CRUD PHP + SQLite</h1>
 
     <div>
-        <a href="/add.php">Add</a>
+        <a href="/add.php" title="Add record">Add record</a>
     </div>
 
     <?php
@@ -25,10 +25,14 @@
         // run the SQL
         $students = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+        echo "<ul>";
+
         // show it on the screen as HTML
         foreach($students as $row => $student) {
-            echo "<p><a href=\"/one.php?id=" . $student['id']  . "\">" . $student['sname'] . "</a></p>";
+            echo "<li><a href=\"/one.php?id=" . $student['id']  . "\">" . $student['sname'] . "</a></li>";
         }
+
+        echo "</ul>";
     ?>
     
 </body>
