@@ -29,11 +29,13 @@
 
         // show it on the screen as HTML
         foreach($students as $row => $student) {
-            echo "<li><a href=\"/one.php?id=" . $student['id']  . "\">" . $student['sname'] . "</a></li>";
+            echo "<li><a href=\"/view.php?id=" . $student['id']  . "\">" . $student['sname'] . "</a> - <a href='delete.php?id=" . $student['id']  . "'>Erase this record</a></li>";
         }
 
         echo "</ul>";
     ?>
+
+    
     
 </body>
 </html>

@@ -55,8 +55,10 @@
                 // does the value exist?
                 if ($success) {
                     echo "The student has been added to the database.";
+                    echo "<p><a href='/'>Go back to the main page.</a></p>";
                 } else {
                     echo "The student has NOT been added to the database.";
+                    echo "<p><a href='/'>Go back to the main page.</a></p>";
                 }
 
                 $db = null;
@@ -69,7 +71,6 @@
 
         }
     ?>
-    
 
 </body>
 </html>

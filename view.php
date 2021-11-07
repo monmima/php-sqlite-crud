@@ -46,3 +46,9 @@
 <form action="<?php echo 'delete.php?id=' . htmlspecialchars($r['id']) ?>" method="POST">
     <button type="submit" name="delete">Delete this record</button>
 </form>
+
+
+<form action="edit.php" method="POST">
+    <button type="submit" name="delete">Edit this record</button>
+<input type=hidden name=id value="<?php echo $r['id']; ?>">
+</form>

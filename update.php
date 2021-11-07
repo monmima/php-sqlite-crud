@@ -1,4 +1,3 @@
-<!-- 15.01 -->
 <!-- https://www.youtube.com/watch?v=cyl0Oj3rmmg&list=PLU70qqWW4frENsWYAm-tAKp2ZJQ_dt3WR&index=8 -->
 
 <!DOCTYPE html>
@@ -46,7 +45,6 @@
             print "We had an error: " . $e->getMessage() . "<br>";
             die();
         }
-
 
     ?>
     
