@@ -14,8 +14,6 @@
     </div>
 
     <?php
-        // 15.30
-
         // define PDO - tell about the database file
         $pdo = new PDO("sqlite:database.db");
 
