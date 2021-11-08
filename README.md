@@ -1,6 +1,8 @@
 # php-sqlite-crud
 
-A simple CRUD project involving PHP and SQLite
+A simple CRUD project involving PHP and SQLite.
+
+Version of this project hosted on Heroku: https://php-sqlite-crud-2.herokuapp.com/
 
 ## Running a project
 
