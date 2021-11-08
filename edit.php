@@ -1,66 +1,78 @@
-<?php 
-    // $db->close();
-    // echo $_GET['id'];
-?> 
-<?php if ($_REQUEST["actionx"] =="") { ?>
-<!-- get database content -->
-<?php
-    // define PDO - tell about the database file
-    $db = new PDO("sqlite:database.db");
-
-    try {
-        $sql = "SELECT * FROM students_tb WHERE id=:myId";
-
-        // prepare statement
-        $statement = $db->prepare($sql);
-
-        // get value from querystring and bind
-        $id = filter_input(INPUT_POST, "id");
-        $statement->bindValue(":myId", $id, PDO::PARAM_INT);
-
-        // execute the query
-        $statement->execute();
-
-        // create array of records
-        $r = $statement->fetch();
-        $db = null;
-
-        // check contents of array
-        if (!$r) {
-            echo "No record found";
-        } else {
-            echo "record found";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input, label {
+            display: block;
         }
-    }
+    </style>
+</head>
+<body>
+    <?php 
+        // $db->close();
+        // echo $_GET['id'];
+    ?> 
+    <?php if ($_REQUEST["actionx"] =="") { ?>
+    <!-- get database content -->
+    <?php
+        // define PDO - tell about the database file
+        $db = new PDO("sqlite:database.db");
 
-    catch (PDOException $e) {
-        print "We had an error: " . $e->getMessage() . "<br>";
-        die();
-    }
-?>
+        try {
+            $sql = "SELECT * FROM students_tb WHERE id=:myId";
 
-<form action="edit.php" method="post">
+            // prepare statement
+            $statement = $db->prepare($sql);
 
-    <label for="sname">Student's Name</label>
-    <input type="text" name="sname" required value="<?php echo htmlspecialchars($r['sname']); ?>">
+            // get value from querystring and bind
+            $id = filter_input(INPUT_POST, "id");
+            $statement->bindValue(":myId", $id, PDO::PARAM_INT);
 
-    <label for="score">Score</label>
-    <input type="number" name="score" required value="<?php echo htmlspecialchars($r['score']); ?>">
-<input type=hidden name=id value="<?php echo $_REQUEST["id"]; ?>">
+            // execute the query
+            $statement->execute();
 
-<input type=hidden name=actionx value="update">
+            // create array of records
+            $r = $statement->fetch();
+            $db = null;
 
-<button type="submit" name="submit">Submit</button>
+            // check contents of array
+            if (!$r) {
+                echo "No record found";
+            } else {
+                echo "record found";
+            }
+        }
 
-</form>
-<?php } ?>
+        catch (PDOException $e) {
+            print "We had an error: " . $e->getMessage() . "<br>";
+            die();
+        }
+    ?>
+
+    <form action="edit.php" method="post">
+
+        <label for="sname">Student's Name</label>
+        <input type="text" name="sname" required value="<?php echo htmlspecialchars($r['sname']); ?>">
+
+        <label for="score">Score</label>
+        <input type="number" name="score" required value="<?php echo htmlspecialchars($r['score']); ?>">
+    <input type=hidden name=id value="<?php echo $_REQUEST["id"]; ?>">
+
+    <input type=hidden name=actionx value="update">
+
+    <button type="submit" name="submit">Submit</button>
+
+    </form>
+    <?php } ?>
 
 
-<?php if ($_REQUEST["actionx"] !="") { ?>
+    <?php if ($_REQUEST["actionx"] !="") { ?>
 
-<?php
-
-
+    <?php
 
         try {
             $id = $_POST['id'];
@@ -105,5 +117,7 @@
             die();
         }
 
-}    
-?>
+    }    
+    ?>
+</body>
+</html>

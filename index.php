@@ -49,6 +49,16 @@
             margin: 15px;
             padding: 15px;
         }
+
+        /*MEDIA QUERIES*/
+        @media screen and (max-width: 600px) {
+            main {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+
     </style>
 </head>
 <body>
