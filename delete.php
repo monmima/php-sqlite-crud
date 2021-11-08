@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-    <h1>Delete student from database</h1>
+    <h1>Deleted student from database</h1>
     
     <?php
         // get the parameter called id for the URL
